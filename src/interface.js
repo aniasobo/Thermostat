@@ -37,8 +37,6 @@ $(document).ready(function() {
 
   function updateCurrentTemperature() {
     $("h1").text(`Current temperature: ${term._temperature}`);
-   // $("body").addClass(`${term.checkEnergyUsage()}`);
-   // $('#wrapper').attr('class', term.checkEnergyUsage());
   };
 
   function updateEnergyUsage() {
