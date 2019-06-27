@@ -1,8 +1,8 @@
 $(document).ready(function() {
   var term = new Thermostat();
-  $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
   updateCurrentTemperature();
   updateEnergyUsage();
+  updateMaxTemperature();
   
   $( "#up" ).click(function() {
     term.up();
@@ -18,8 +18,8 @@ $(document).ready(function() {
 
   $( "#psm" ).click(function() {
     term.togglePSM();
-    $("h3").text(`Max temperature allowed: ${term.maxTempValue()}`)
     updateCurrentTemperature();
+    updateMaxTemperature();
   });
 
   $( "#reset" ).click(function() {
@@ -29,9 +29,9 @@ $(document).ready(function() {
   });
 
   $( "#energy" ).click(function() {
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
     updateCurrentTemperature();
     updateEnergyUsage();
+    updateMaxTemperature();
   });
 
   function updateCurrentTemperature() {
@@ -42,4 +42,8 @@ $(document).ready(function() {
     var status = term.checkEnergyUsage();
     $("h2").text(`Energy usage: ${status}`);
   };
+
+  function updateMaxTemperature() {
+    $("h3").text(`Max temperature allowed: ${term.maxTempValue()}`);
+  }
 });
