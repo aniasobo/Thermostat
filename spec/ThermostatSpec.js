@@ -8,12 +8,17 @@ describe("Thermostat", function() {
   });
 
   it("has default temp of 20 deg", function() {
-    expect(thermostat.temperature).toEqual(20)
+    expect(thermostat.returnTemperature()).toEqual(20)
   });
 
   it('up adds one to current tempretature', function() {
     thermostat.up();
-    expect(thermostat.temperature).toEqual(21)
+    expect(thermostat.returnTemperature()).toEqual(21)
+  });
+
+  it('down decreases temperature by 1', function() {
+    thermostat.down();
+    expect(thermostat.returnTemperature()).toEqual(19)
   });
 
 });
