@@ -1,47 +1,45 @@
 $(document).ready(function() {
   var term = new Thermostat();
-  var status = term.checkEnergyUsage();
-  $( "h2" ).text(`Energy usage: ${status}`);
   $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
   updateCurrentTemperature();
+  updateEnergyUsage();
   
   $( "#up" ).click(function() {
     term.up();
-    status = term.checkEnergyUsage();
-    $( "h2" ).text(`Energy usage: ${status}`);
     updateCurrentTemperature();
+    updateEnergyUsage();
   });
 
   $( "#down" ).click(function() {
     term.down();
-    status = term.checkEnergyUsage();
-    $( "h2" ).text(`Energy usage: ${status}`);
     updateCurrentTemperature();
+    updateEnergyUsage();
   });
 
   $( "#psm" ).click(function() {
     term.togglePSM();
-    status = term.checkEnergyUsage();
-    $( "h2" ).text(`Energy usage: ${status}`);
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    $("h3").text(`Max temperature allowed: ${term.maxTempValue()}`)
     updateCurrentTemperature();
   });
 
   $( "#reset" ).click(function() {
     term.reset();
-    status = term.checkEnergyUsage();
-    $( "h2" ).text(`Energy usage: ${status}`);
     updateCurrentTemperature();
+    updateEnergyUsage();
   });
 
   $( "#energy" ).click(function() {
-    status = term.checkEnergyUsage();
-    $( "h2" ).text(`Energy usage: ${status}`);
     $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
     updateCurrentTemperature();
+    updateEnergyUsage();
   });
 
   function updateCurrentTemperature() {
     $("h1").text(`Current temperature: ${term._temperature}`);
+  };
+
+  function updateEnergyUsage() {
+    var status = term.checkEnergyUsage();
+    $("h2").text(`Energy usage: ${status}`);
   };
 });
