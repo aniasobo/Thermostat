@@ -1,53 +1,47 @@
 $(document).ready(function() {
-  console.log('ready');
   var term = new Thermostat();
   var status = term.checkEnergyUsage();
-  $( "h1" ).text(`Current temperature: ${term._temperature}`);
   $( "h2" ).text(`Energy usage: ${status}`);
-  $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+  $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
+  updateCurrentTemperature();
   
   $( "#up" ).click(function() {
     term.up();
-    var returnval = term.returnTemperature();
-    var status = term.checkEnergyUsage();
-    console.log(returnval);
-    $( "h1" ).text(`Current temperature: ${term._temperature}`);
+    status = term.checkEnergyUsage();
     $( "h2" ).text(`Energy usage: ${status}`);
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    updateCurrentTemperature();
   });
 
   $( "#down" ).click(function() {
     term.down();
-    returnval = term.returnTemperature();
-    var status = term.checkEnergyUsage();
-    console.log(returnval);
-    $( "h1" ).text(`Current temperature: ${term._temperature}`);
+    status = term.checkEnergyUsage();
     $( "h2" ).text(`Energy usage: ${status}`);
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    updateCurrentTemperature();
   });
 
   $( "#psm" ).click(function() {
     term.togglePSM();
-    var status = term.checkEnergyUsage();
-    console.log(term.isPSMon());
-    $( "h1" ).text(`Current temperature: ${term._temperature}`);
+    status = term.checkEnergyUsage();
     $( "h2" ).text(`Energy usage: ${status}`);
     $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    updateCurrentTemperature();
   });
 
   $( "#reset" ).click(function() {
     term.reset();
-    var status = term.checkEnergyUsage();
-    console.log(term.returnTemperature());
-    $( "h1" ).text(`Current temperature: ${term._temperature}`);
+    status = term.checkEnergyUsage();
     $( "h2" ).text(`Energy usage: ${status}`);
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    updateCurrentTemperature();
   });
 
   $( "#energy" ).click(function() {
-    var status = term.checkEnergyUsage();
-    $( "h1" ).text(`Current temperature: ${term._temperature}`);
+    status = term.checkEnergyUsage();
     $( "h2" ).text(`Energy usage: ${status}`);
-    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`)
+    $( "h3" ).text(`Max temperature allowed: ${term.maxTempValue()}`);
+    updateCurrentTemperature();
   });
+
+  function updateCurrentTemperature() {
+    $("h1").text(`Current temperature: ${term._temperature}`);
+  };
 });
