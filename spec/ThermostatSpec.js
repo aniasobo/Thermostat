@@ -11,6 +11,10 @@ describe("Thermostat", function() {
     expect(thermostat.returnTemperature()).toEqual(20)
   });
 
+  it('has a power saving mode toggle on by default', function() {
+    expect(thermostat.powerSavingMode).toBe(true);
+  }
+
   it('up adds one to current tempretature', function() {
     thermostat.up();
     expect(thermostat.returnTemperature()).toEqual(21)
@@ -26,7 +30,7 @@ describe("Thermostat", function() {
   })
 
   it('returns min temp', function() {
-    expect(thermostat.isMinTemp()).toEqual(false);
+    expect(thermostat.isMinTemp()).toBe(false);
   })
 
 });

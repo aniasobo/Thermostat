@@ -35,4 +35,8 @@ describe('Thermostat App', function() {
     expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached');
   });
 
+  it('has a power saving mode toggle on by default', function() {
+    expect(thermostat.powerSavingMode).toBe(true);
+  });
+
 });

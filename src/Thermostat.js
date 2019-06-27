@@ -3,6 +3,7 @@
 function Thermostat() {
   this._temperature = 20;
   this.MIN_TEMP = 10;
+  this.powerSavingMode = true;
 }
 
 Thermostat.prototype.returnTemperature = function() {
@@ -23,3 +24,18 @@ Thermostat.prototype.down = function() {
   }
   this._temperature -= 1;
   };
+
+  Thermostat.prototype.isPSMon = function() {
+    return this.powerSavingMode;
+  }
+
+  Thermostat.prototype.togglePowerSavingMode = function() {
+    if(this.isPSMon()) {
+      this.powerSavingMode = false;
+  } 
+  this.powerSavingMode = true;
+  };
+
+  Thermostat.prototype.maxTempValue = function() {
+    return (this.isPSMon() ? 25 : 32);
+    };
