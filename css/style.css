@@ -1,0 +1,14 @@
+.low {
+  background-color: #0C7C59;
+  color: #2B303A;
+}
+
+.medium {
+  background-color: #2B303A;
+  color: #C5D9E2;
+}
+
+.high {
+  background-color: #D64933;
+  color: #2B303A;
+}

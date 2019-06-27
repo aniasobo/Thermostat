@@ -19,6 +19,7 @@ $(document).ready(function() {
   $( "#psm" ).click(function() {
     term.togglePSM();
     updateCurrentTemperature();
+    updateEnergyUsage();
     updateMaxTemperature();
   });
 
@@ -36,11 +37,14 @@ $(document).ready(function() {
 
   function updateCurrentTemperature() {
     $("h1").text(`Current temperature: ${term._temperature}`);
+   // $("body").addClass(`${term.checkEnergyUsage()}`);
+   // $('#wrapper').attr('class', term.checkEnergyUsage());
   };
 
   function updateEnergyUsage() {
     var status = term.checkEnergyUsage();
     $("h2").text(`Energy usage: ${status}`);
+    $("body").removeClass().addClass(`${status}`);
   };
 
   function updateMaxTemperature() {
