@@ -62,4 +62,22 @@ describe('Thermostat App', function() {
     expect(thermostat.reset()).toEqual(20);
   })
 
+  it('checks Low energy usage', function() {
+    for (let i = 0; i < 3; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.checkEnergyUsage()).toEqual("Low")
+  })
+
+  it('checks High energy usage', function() {
+    for (let i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.checkEnergyUsage()).toEqual("High")
+  })
+
+  it('checks Medium energy usage', function() {
+    expect(thermostat.checkEnergyUsage()).toEqual("Medium")
+  })
+
 });
