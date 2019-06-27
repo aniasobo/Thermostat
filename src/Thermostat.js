@@ -36,3 +36,7 @@ Thermostat.prototype.down = function() {
   Thermostat.prototype.maxTempValue = function() {
     return (this.isPSMon() ? 25 : 32);
     };
+
+Thermostat.prototype.reset = function() {
+  return this._temperature = 20;
+}

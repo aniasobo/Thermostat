@@ -56,5 +56,10 @@ describe('Thermostat App', function() {
     thermostat.togglePSM();
     expect(thermostat.maxTempValue()).toEqual(32);
   })
+  
+  it('resets temp back to 20', function() {
+    thermostat.up();
+    expect(thermostat.reset()).toEqual(20);
+  })
 
 });
