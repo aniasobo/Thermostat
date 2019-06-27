@@ -1,12 +1,14 @@
 $(document).ready(function() {
   console.log('ready');
   var term = new Thermostat();
-
+  $( "h1" ).text(term._temperature);
+  
   $( "#up" ).click(function() {
     term.up();
     var returnval = term.returnTemperature();
     alert("temp up");
     console.log(returnval);
+    $( "h1" ).text(term._temperature);
   });
 
   $( "#down" ).click(function() {
@@ -14,6 +16,7 @@ $(document).ready(function() {
     returnval = term.returnTemperature();
     alert("temp down");
     console.log(returnval);
+    $( "h1" ).text(term._temperature);
   });
 
   $( "#psm" ).click(function() {
