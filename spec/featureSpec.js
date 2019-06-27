@@ -39,4 +39,22 @@ describe('Thermostat App', function() {
     expect(thermostat.powerSavingMode).toBe(true);
   });
 
+  it('returns true if PSM is on', function() {
+    expect(thermostat.isPSMon()).toBe(true);
+  })
+
+  it('toggles PSM', function() {
+    thermostat.togglePSM();
+    expect(thermostat.isPSMon()).toBe(false);
+  })
+
+  it('returns max temp value', function() {
+    expect(thermostat.maxTempValue()).toEqual(25);
+  })
+
+  it('returns changed max temp value', function() {
+    thermostat.togglePSM();
+    expect(thermostat.maxTempValue()).toEqual(32);
+  })
+
 });

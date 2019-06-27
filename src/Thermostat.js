@@ -29,11 +29,8 @@ Thermostat.prototype.down = function() {
     return this.powerSavingMode;
   }
 
-  Thermostat.prototype.togglePowerSavingMode = function() {
-    if(this.isPSMon()) {
-      this.powerSavingMode = false;
-  } 
-  this.powerSavingMode = true;
+  Thermostat.prototype.togglePSM = function() {
+    this.isPSMon() ? this.powerSavingMode = false : this.powerSavingMode = true;
   };
 
   Thermostat.prototype.maxTempValue = function() {
