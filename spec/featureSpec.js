@@ -22,14 +22,14 @@ describe('Thermostat App', function() {
   });
 
   it('has a minimum temperature', function() {
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 10; i++) {
       thermostat.down();
     }
     expect(thermostat.returnTemperature()).toEqual(10);
   });
 
   it('throws error if already at min temperature', function() {
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 10; i++) {
       thermostat.down();
     }
     expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached');

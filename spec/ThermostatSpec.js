@@ -1,6 +1,6 @@
 'use strict';
 
-describe("Thermostat", function() {
+ describe("Thermostat", function() {
   var thermostat;
 
   beforeEach(function() {
@@ -13,7 +13,7 @@ describe("Thermostat", function() {
 
   it('has a power saving mode toggle on by default', function() {
     expect(thermostat.powerSavingMode).toBe(true);
-  }
+  });
 
   it('up adds one to current tempretature', function() {
     thermostat.up();
