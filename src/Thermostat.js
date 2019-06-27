@@ -1,7 +1,9 @@
+'use strict';
+
 function Thermostat() {
-  this.state = 20;
+  this.temperature = 20;
 }
 
-Thermostat.prototype.temperature = function() {
-  return this.state;
+Thermostat.prototype.up = function() {
+  this.temperature += 1;
 };
