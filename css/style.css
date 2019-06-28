@@ -1,30 +1,82 @@
 /* color palette */
 :root {
-  /* backgrounds and text */
-  --standard-green: #0C7C59;
+  /* backgrounds */
+  --deep-green: #42AA50;
+  --mid-green: #52AA5E;
+  --chill-green: #61B16C;
+  --plum-grey: #ADB33F;
+  --plum: #F6B33F;
   --medium-red: #D64933;
-  --ok-black: #2B303A;
-  --font-cream: #C5D9E2;
+  --med-red: #B04C3F;
+  --alarming: #B03F3F;
   /* buttons */
   --fiery-red: #A20021;
   --chill-blue: #4EB3D8;
   --mid-green: #52AA5E;
+  /* text */
+  --font-cream: #C5D9E2;
+  --ok-black: #2B303A;
+}
+
+@font-face {
+  font-family: 'Rock Salt';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Rock Salt Regular'), local('RockSalt-Regular'), url(https://fonts.gstatic.com/s/rocksalt/v9/MwQ0bhv11fWD6QsAVOZrt0M6p7NGrQ.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'B612 Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('B612 Mono Regular'), local('B612Mono-Regular'), url(https://fonts.gstatic.com/s/b612mono/v3/kmK_Zq85QVWbN1eW6lJV0A7diOdDtw.woff2) format('woff2');
+}
+
+body {
+  font-family: 'Rock Salt';
+}
+
+.digit {
+  font-family: 'B612 Mono';
+  font-weight: bold;
+  font-size: 4rem;
 }
 
 /* power usage classes */
+.very-low {
+  background-color: var(--deep-green);
+  color: var(--ok-black);
+}
 
 .low {
-  background-color: var(--standard-green);
+  background-color: var(--mid-green);
+  color: var(--ok-black);
+}
+
+.low-to-med {
+  background-color: var(--chill-green);
   color: var(--ok-black);
 }
 
 .medium {
-  background-color: var(--ok-black);
+  background-color: var(--plum-grey);
   color: var(--font-cream);
 }
 
+.med-to-high {
+  background-color: var(--plum);
+  color: var(--ok-black);
+}
+
 .high {
-  background-color: var(--medium-red);
+  background-color: var(--med-red);
+  color: var(--ok-black);
+}
+
+.super-high {
+  background-color: var(--alarming);
   color: var(--ok-black);
 }
 
@@ -49,7 +101,7 @@
 
 .green {
   border-bottom:solid 1px var(--font-cream);
-  background: var(--mid-green);
+  background: var(--chill-green);
   font-size: 0.8rem;
 }
 
@@ -58,7 +110,7 @@
 }
 
 .red:hover {
-  border:solid 2px var(--font-cream);
+  border:solid 4px var(--font-cream);
 }
 
 /* .red:active {
@@ -83,7 +135,7 @@ transition:0s;
 }
 
 .blue:hover {
-  border:solid 2px var(--chill-blue);
+  border:solid 4px var(--font-cream);
 }
 
 .blue:active {
@@ -91,7 +143,6 @@ width:100px;
 height:100px;
 border-radius: 999px;
 box-sizing: border-box;
-border:solid 10px tansparent;
 background: var(--font-cream);
 transition: .6 ease;
 }

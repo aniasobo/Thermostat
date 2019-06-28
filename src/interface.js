@@ -36,7 +36,7 @@ $(document).ready(function() {
   });
 
   function updateCurrentTemperature() {
-    $("h1").text(`Current temperature: ${term._temperature}`);
+    $("#digittemp").text(`${term._temperature}`);
   };
 
   function updateEnergyUsage() {
@@ -46,6 +46,6 @@ $(document).ready(function() {
   };
 
   function updateMaxTemperature() {
-    $("h3").text(`Max temperature allowed: ${term.maxTempValue()}`);
+    $("#digimax").text(`${term.maxTempValue()}`);
   }
 });

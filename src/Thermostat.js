@@ -11,7 +11,7 @@ Thermostat.prototype.returnTemperature = function() {
 }
 
 Thermostat.prototype.up = function() {
-  this._temperature += 1;
+  this._temperature++;
 };
 
 Thermostat.prototype.isMinTemp = function() {
@@ -22,7 +22,7 @@ Thermostat.prototype.down = function() {
   if(this.isMinTemp()) {
     throw new Error("Minimum temperature reached");
   }
-  this._temperature -= 1;
+  this._temperature--;
   };
 
   Thermostat.prototype.isPSMon = function() {
@@ -42,11 +42,19 @@ Thermostat.prototype.reset = function() {
 }
 
 Thermostat.prototype.checkEnergyUsage = function() {
-  if(this._temperature <= 18) {
+  if(this._temperature <= 15) {
+    return "very-low"
+  } else if(this._temperature >= 16 && this._temperature <= 18) {
     return "low"
-  } else if(this._temperature > 18 && this._temperature < 25) {
+  } else if(this._temperature === 19 || this._temperature === 20) {
+    return "low-to-med"
+  } else if(this._temperature === 21 || this._temperature === 22) {
     return "medium"
+  } else if(this._temperature === 23 || this._temperature === 24) {
+    return "med-to-high"
+  } else if(this._temperature === 25 || this._temperature === 26) {
+    return "high"
   } else {
-  return "high"
+  return "super-high"
   }
 }
